@@ -8,9 +8,39 @@ public class excericici01Main {
         //no es primer
         //no son 5
         //esta buit
-        int[] array = {2, 3, 5,};
-        //int[] array = {2, -3, 4, 7, 11};
+        
+        int[] array1 = {2, 3, 5, 8, 12};
+        int[] array2 = {2, 3, 5,};
+        int[] array3 = {};
+        int[] array4 = {2, 3, 5, 7, 11};
+        
+        System.out.println("Exemple d'error 1");
+        ComprovarExpecions(array1);
+        System.out.println("Exemple d'error 2");
+        ComprovarExpecions(array2);
+        System.out.println("Exemple d'error 3");
+        ComprovarExpecions(array3);
+        System.out.println("Comprobacio correcte");
+        ComprovarExpecions(array4);
+        
 
+        
+    }
+
+    public static boolean esPrimo(int numero) {
+        int num = numero;
+        boolean esPrimo = false;
+        for (int i = 2; i <= num / 2; ++i) {
+            if (num % i == 0) {
+                esPrimo = true;
+                break;
+            }
+        }
+        return esPrimo;
+    }
+    
+    public static void ComprovarExpecions(int[] array){
+        
         try {
             if (array.length == 0) {
                 throw new ArrayEstaBuitException();
@@ -23,10 +53,10 @@ public class excericici01Main {
                 
                 for (int i = 0; i < 5; i++) {
                     try {
-                        if (array[i] < 0) {
-                            //throw new negatiu();
-                            throw new NombreInvalidException();
+                        if(esPrimo(array[i])){
+                            throw new NombreInvalidException(array[i]);
                         }
+                        
                     } catch (NombreInvalidException e) {
                         System.out.println(e.getMessage());
                     }
@@ -38,22 +68,6 @@ public class excericici01Main {
         } catch (ArrayEstaBuitException e) {
             System.out.println(e.getMessage());
         }
-    }
-
-    public static boolean esPrimo(int numero) {
-        int num = numero;
-        boolean esPrimo = false;
-        for (int i = 2; i <= num / 2; ++i) {
-            // condition for nonprime number
-            if (num % i == 0) {
-                esPrimo = true;
-                break;
-            }
-        }
-        return esPrimo;
-    }
-    
-    public static void ComprovarExpecions(int[] array){
     }
 
 }
