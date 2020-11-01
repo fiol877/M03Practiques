@@ -1,4 +1,4 @@
-package M03UF5;
+package M03UF5.Practica1;
 
 public class ArrayNoEsDeCincException extends Exception {
 
