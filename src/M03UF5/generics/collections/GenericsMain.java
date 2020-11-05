@@ -4,23 +4,23 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.lang.Double;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
-
-/**
- * que retorne el ultimo elemento de la lista
- * 
- * que retorne la media de una lista de double
- * 
- * que retorne la cadena mas larga de una lista de cadenas
- * 
- * el maximo de una cadena de enteros
- * 
- * 
- * 
- * 
- * @author Bernat
- */
-
+class AlumnoEdadCoparator implements Comparator<Alumno>{
+    
+    @Override
+    public int compare(Alumno o1, Alumno o2){
+        if(o1.getEdad()<o2.getEdad()) return -1;
+        else if (o1.getEdad() == o2.getEdad()) return 0;
+        else return 1;
+    }
+}
 
 public class GenericsMain {
     public static void main(String[] args) {
@@ -44,12 +44,11 @@ public class GenericsMain {
         listaInts.add(1);
         
         
-        if (!lista1.isEmpty()){
+        /*if (!lista1.isEmpty()){
             System.out.println(ultimo(lista1));
         } else {
             System.out.println("La Llista esta buida");
         }
-        
         
         if (!listMedia.isEmpty()){
             System.out.println(media(listMedia));
@@ -68,7 +67,73 @@ public class GenericsMain {
         } else {
             System.out.println("La Llista esta buida");
         }
+        */
         
+        
+        //Proves amb el Set
+        
+//        Set<Alumno> set = new HashSet<>();
+//        set.add(new Alumno("Pepe", 34));
+//        set.add(new Alumno("Ana", 28));
+//        set.add(new Alumno("Pere", 45));
+//        set.add(new Alumno("Pepe", 34));
+//        
+//        
+//        for(Iterator i = set.iterator(); i.hasNext();){
+//            System.out.println(i.next());
+//        }
+        
+        /*Iterator i = set.iterator();
+        
+        while(i.hasNext()){
+            System.out.println(i.next());
+        }
+        */
+        
+        //Proves amb el Map i Collections
+        Map<Integer, Alumno> mapa = new HashMap<>();
+        mapa.put(1, new Alumno("Pepe", 34));
+        mapa.put(1, new Alumno("Ana", 28));
+        mapa.put(3, new Alumno("Pere", 45));
+        mapa.put(4, new Alumno("Marc", 44));
+        
+        Alumno alumno = mapa.get(3);
+        System.out.println(alumno);
+       
+        Set<Integer> claves = mapa.keySet();
+        for(Iterator i = claves.iterator(); i.hasNext();){
+            System.out.println(mapa.get(i.next()));
+        }
+        
+        Collection<Alumno> col = mapa.values();
+        for(Iterator ic = col.iterator(); ic.hasNext();){
+            System.out.println(ic.next());
+        }
+       
+        Collections.reverse(lista1);
+        System.out.println(lista1);
+
+
+        //Ordenar una coleccio
+        
+        List<Alumno> listaAlumnos = new ArrayList();
+        listaAlumnos.add(new Alumno("Pog", 23));
+        listaAlumnos.add(new Alumno("Nymn", 50));
+        listaAlumnos.add(new Alumno("Elias", 30));
+        listaAlumnos.add(new Alumno("Sebastian", 2));
+        
+        Collections.sort(listaAlumnos);
+        System.out.println(listaAlumnos);
+        
+        //Comparador, clase mes adalt
+        System.out.println("Comparator time");
+        List<Alumno> listaAlumnosC = new ArrayList();
+        listaAlumnosC.add(new Alumno("Pog", 23));
+        listaAlumnosC.add(new Alumno("Nymn", 50));
+        listaAlumnosC.add(new Alumno("Elias", 30));
+        listaAlumnosC.add(new Alumno("Sebastian", 2));
+        Collections.sort(listaAlumnosC, new AlumnoEdadCoparator());
+        System.out.println(listaAlumnosC);
         
     }
     
