@@ -10,5 +10,5 @@ package M03UF5.generics.collections.Exercici;
  * @author pep
  */
 public enum OrientacionSexual {
-    HETERO, LESBIANA, GAY, BISEXUAL;
+    HETERO, HOMO, BISEXUAL;
 }

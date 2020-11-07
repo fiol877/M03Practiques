@@ -13,8 +13,9 @@ public class Persona {
     private OrientacionSexual orientacionSexual;
     private Formacion formacion;
     private OrientacionPolitica orientacionPolitica;
+    private Aficiones aficiones;
 
-    public Persona(int id, Sexo sexo, int edad, boolean fumador, OrientacionSexual orientacionSexual, Formacion formacion, OrientacionPolitica orientacionPolitica) {
+    public Persona(int id, Sexo sexo, int edad, boolean fumador, OrientacionSexual orientacionSexual, Formacion formacion, OrientacionPolitica orientacionPolitica, Aficiones aficiones) {
         this.id = id;
         this.sexo = sexo;
         this.edad = edad;
@@ -22,6 +23,7 @@ public class Persona {
         this.orientacionSexual = orientacionSexual;
         this.formacion = formacion;
         this.orientacionPolitica = orientacionPolitica;
+        this.aficiones = aficiones;
     }
 
     public int getId() {
@@ -51,6 +53,15 @@ public class Persona {
     public OrientacionPolitica getOrientacionPolitica() {
         return orientacionPolitica;
     }
-        
-    
+
+    public Aficiones getAficiones() {
+        return aficiones;
+    }
+
+    @Override
+    public String toString() {
+        return "Persona{" + "id=" + id + ", sexo=" + sexo + ", edad=" + edad + ", fumador=" + fumador + ", orientacionSexual=" + orientacionSexual + ", formacion=" + formacion + ", orientacionPolitica=" + orientacionPolitica + ", aficiones=" + aficiones + '}';
+    }
+
+
 }
