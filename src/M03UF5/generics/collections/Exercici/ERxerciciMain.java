@@ -16,7 +16,7 @@ public class ERxerciciMain {
 
         MatcherImpl m = new MatcherImpl();
         
-        Persona match = m.matches(new Persona(0, Sexo.HOMBRE, 18, false, OrientacionSexual.HETERO, Formacion.PRIMARIA, OrientacionPolitica.EXTREMA_IZQUIERDA, Aficiones.VIDEOJUEGOS), listaPersonas);
+        Persona match = m.matches(new Persona(0, Sexo.MUJER, 18, false, OrientacionSexual.HOMO, Formacion.PRIMARIA, OrientacionPolitica.EXTREMA_IZQUIERDA, Aficiones.VIDEOJUEGOS), listaPersonas);
         if (match == null) System.out.println("No hi ha cap match possible");
         else System.out.println(match);
     }

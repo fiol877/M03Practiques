@@ -29,6 +29,7 @@ public class MatcherImpl implements Matcher {
                         if(puntsActuals > puntsMillorCandidat){
                             puntsMillorCandidat = puntsActuals;
                             match = candidato;
+                            puntsActuals = 0;
                         }
                     }
                 }
