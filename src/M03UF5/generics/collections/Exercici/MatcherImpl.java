@@ -24,7 +24,6 @@ public class MatcherImpl implements Matcher {
                 if(candidato.getEdad()>=18){
                     if (sexualitatCompatible(persona, candidato)){
                         if(edatCompatible(persona, candidato)) puntsActuals += 1;
-                        if(edatCompatible(persona, candidato)) puntsActuals += 1;
                         if(persona.getAficiones() == candidato.getAficiones()) puntsActuals +=1;
                         if(puntsActuals > puntsMillorCandidat){
                             puntsMillorCandidat = puntsActuals;
