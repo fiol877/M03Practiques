@@ -22,7 +22,7 @@ public class Regexp {
         validarMobil("664587258");
         validarMobilEspanya("+34664587258");
         validarMatricula("4342 YHS");
-        validarData("32/12/2005");
+        validarData("31/12/2005");
         validarEmail("fiol.carmona.bernat@alumnat.copernic.cat");
         
         
@@ -75,7 +75,7 @@ public class Regexp {
     }
     
     public static void validarData(String data){
-        Pattern p = Pattern.compile("[1-9]{2}/[1-9]{2}/[1-9]{4}");
+        Pattern p = Pattern.compile("(0?[1-9]|[12][0-9]|3[01])/(0?[1-9]|1[012])/((18|19|20|21)\\d\\d)");
         Matcher m1 = p.matcher(data);
         boolean b = m1.matches();
         
