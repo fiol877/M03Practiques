@@ -24,6 +24,7 @@ public class Regexp {
         validarMatricula("4342 YHS");
         validarData("31/12/2005");
         validarEmail("fiol.carmona.bernat@alumnat.copernic.cat");
+        System.out.println(validateClave("AA333AA"));
         
         
     }
@@ -84,12 +85,20 @@ public class Regexp {
     }
     
     public static void validarEmail(String email){
-        Pattern p = Pattern.compile("[\\w!#$%&'*+-/=?^_`{|}~]+@[\\w\\.]+\\.[a-z]+");
+        Pattern p = Pattern.compile("[\\w!#$%&'*+-/=?^_`{|}~\\.]+@[\\w\\.]+\\.[a-z]+");
         Matcher m1 = p.matcher(email);
         boolean b = m1.matches();
         
         if(b==true) System.out.println("Format del email correcte");
         else System.out.println("Format del email incorrecte");
     }
-//@[\\w]+.[a-z]+}
+
+    public static boolean validateClave(String clave){
+        Pattern p = Pattern.compile("^((\\p{Alpha}\\p{Alpha})(\\d{3}))\\2$");
+        Matcher m1 = p.matcher(clave);
+        boolean b = m1.matches();
+        
+        return b;
+    }
+
 }
